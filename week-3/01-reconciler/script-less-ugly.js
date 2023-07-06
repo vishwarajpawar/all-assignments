@@ -51,9 +51,9 @@ function createDomElements(data) {
     parentElement.removeChild(child);
   });
 
-  console.log(added);
-  console.log(updated);
-  console.log(deleted);
+  console.log(`added: ${added}`);
+  console.log(`updated: ${updated}`);
+  console.log(`deleted: ${deleted}`);
 }
 
 
