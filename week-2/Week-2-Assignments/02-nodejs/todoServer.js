@@ -81,6 +81,7 @@ function ReadFile(todos){
 
 app.post('/todos',(req, res)=>{
   let todo = req.body;
+  req.body.completed = false;
   todosList = ReadFile(todosList);
   const {
     error
@@ -184,5 +185,5 @@ app.delete('/todos/:id',(req,res)=>{
 function start(){
   console.log(`started on the port: ${port}`);
 }
-//app.listen(port,start);
+app.listen(port,start);
 module.exports = app;
