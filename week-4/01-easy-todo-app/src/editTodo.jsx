@@ -1,12 +1,23 @@
 import { useState } from 'react'
 import axios from 'axios';
+import { useEffect } from 'react';
  
-function addTodoInput() 
+export function EditTodo({id, setIsEditing}) 
   {
+
+
     const [title, setTitle] = useState("");
     const [description, setDecs] = useState("");
 
-  async function addTodo(e){
+    const _id = id;
+/*
+    useEffect((_id)=>{
+      async function fetchData(_id) {
+
+      }
+    },[])
+
+  async function editTodo(e){
     e.preventDefault();
     const data = {title, description};
     console.log(data);
@@ -15,13 +26,16 @@ function addTodoInput()
         'Content-Type': 'application/json'
       }
     });
+  }*/
+  function editTodo(){
+    setIsEditing((isEditing)=> !isEditing);
   }
-  
   return (
     <div className='add-todo'>
-      <form onSubmit={addTodo}>
+      <form onSubmit={editTodo}>
         <div className='add-todo-btn'>
-      <button type='submit'>Add Todo</button>
+      <button type='submit'
+      >Done</button>
       </div>
       <div className='add-todo-input'>
         <input type="text" className='title' placeholder={title} value={title} onChange={event => {
@@ -33,5 +47,3 @@ function addTodoInput()
     </div>
   )
 }
-
-export default addTodoInput;
